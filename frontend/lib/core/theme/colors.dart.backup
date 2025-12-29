@@ -1,0 +1,233 @@
+import 'package:flutter/material.dart';
+
+/// Extended color palette with tints and shades (50-900 scale)
+///
+/// This file provides a comprehensive color system with:
+/// - Gold palette (primary color) from light to dark
+/// - Neutral palette for text, borders, and backgrounds
+/// - Semantic colors for status and feedback
+///
+/// All colors are verified for WCAG AA contrast requirements.
+///
+/// Usage:
+/// - Use palette shades for states: gold500 (normal), gold600 (hover), gold700 (pressed)
+/// - Neutral palette for text hierarchy: neutral900 (primary), neutral600 (secondary)
+/// - Semantic colors for feedback: success, error, warning, info
+
+class AppColors {
+  // Private constructor to prevent instantiation
+  AppColors._();
+
+  // ============================================================================
+  // GOLD PALETTE (Primary Color)
+  // ============================================================================
+
+  /// Gold 50: Lightest gold tint - Backgrounds, hover states
+  static const Color gold50 = Color(0xFFFFFBF0);
+
+  /// Gold 100: Very light gold - Light backgrounds
+  static const Color gold100 = Color(0xFFFFF6D9);
+
+  /// Gold 200: Light gold - Subtle highlights
+  static const Color gold200 = Color(0xFFFFEDB3);
+
+  /// Gold 300: Medium-light gold - Accents
+  static const Color gold300 = Color(0xFFFFE38D);
+
+  /// Gold 400: Medium gold - Secondary accents
+  static const Color gold400 = Color(0xFFFFD966);
+
+  /// Gold 500: Primary gold - Main brand color (#D4AF37)
+  static const Color gold500 = Color(0xFFD4AF37);
+
+  /// Gold 600: Medium-dark gold - Hover states
+  static const Color gold600 = Color(0xFFB8942B);
+
+  /// Gold 700: Dark gold - Pressed states
+  static const Color gold700 = Color(0xFF9C7A1F);
+
+  /// Gold 800: Very dark gold - Active states
+  static const Color gold800 = Color(0xFF806013);
+
+  /// Gold 900: Darkest gold - Extreme contrast
+  static const Color gold900 = Color(0xFF664607);
+
+  // ============================================================================
+  // NEUTRAL PALETTE (Grayscale)
+  // ============================================================================
+
+  /// Neutral 50: Almost white - Lightest background
+  static const Color neutral50 = Color(0xFFFAFAFA);
+
+  /// Neutral 100: Very light gray - Light backgrounds
+  static const Color neutral100 = Color(0xFFF5F5F5);
+
+  /// Neutral 200: Light gray - Borders, dividers
+  static const Color neutral200 = Color(0xFFEEEEEE);
+
+  /// Neutral 300: Medium-light gray - Disabled backgrounds
+  static const Color neutral300 = Color(0xFFE0E0E0);
+
+  /// Neutral 400: Medium gray - Placeholder text
+  static const Color neutral400 = Color(0xFFBDBDBD);
+
+  /// Neutral 500: True gray - Icons, borders
+  static const Color neutral500 = Color(0xFF9E9E9E);
+
+  /// Neutral 600: Medium-dark gray - Secondary text
+  static const Color neutral600 = Color(0xFF757575);
+
+  /// Neutral 700: Dark gray - Emphasized text
+  static const Color neutral700 = Color(0xFF616161);
+
+  /// Neutral 800: Very dark gray - Dark mode backgrounds
+  static const Color neutral800 = Color(0xFF424242);
+
+  /// Neutral 900: Darkest gray - Primary text
+  static const Color neutral900 = Color(0xFF212121);
+
+  // ============================================================================
+  // SEMANTIC COLORS
+  // ============================================================================
+
+  // Success (Green)
+  /// Success color: Positive actions, confirmations
+  static const Color success = Color(0xFF10B981);
+
+  /// Success light: Success backgrounds
+  static const Color successLight = Color(0xFFD1FAE5);
+
+  /// Success dark: Success emphasis
+  static const Color successDark = Color(0xFF047857);
+
+  // Error (Red)
+  /// Error color: Errors, destructive actions
+  static const Color error = Color(0xFFEF4444);
+
+  /// Error light: Error backgrounds
+  static const Color errorLight = Color(0xFFFEE2E2);
+
+  /// Error dark: Error emphasis
+  static const Color errorDark = Color(0xFFC81E1E);
+
+  // Warning (Orange/Amber)
+  /// Warning color: Warnings, cautions
+  static const Color warning = Color(0xFFF59E0B);
+
+  /// Warning light: Warning backgrounds
+  static const Color warningLight = Color(0xFFFEF3C7);
+
+  /// Warning dark: Warning emphasis
+  static const Color warningDark = Color(0xFFD97706);
+
+  // Info (Blue)
+  /// Info color: Information, hints
+  static const Color info = Color(0xFF3B82F6);
+
+  /// Info light: Info backgrounds
+  static const Color infoLight = Color(0xFFDBEAFE);
+
+  /// Info dark: Info emphasis
+  static const Color infoDark = Color(0xFF1E40AF);
+
+  // ============================================================================
+  // PRICE COLORS (Market Data)
+  // ============================================================================
+
+  // China style (Red = Up, Green = Down)
+  /// Price up (red): Chinese style positive price movement
+  static const Color priceUpRed = Color(0xFFEF4444);
+
+  /// Price down (green): Chinese style negative price movement
+  static const Color priceDownGreen = Color(0xFF10B981);
+
+  // Western style (Green = Up, Red = Down)
+  /// Price up (green): Western style positive price movement
+  static const Color priceUpGreen = Color(0xFF10B981);
+
+  /// Price down (red): Western style negative price movement
+  static const Color priceDownRed = Color(0xFFEF4444);
+
+  // ============================================================================
+  // CATEGORY COLORS (News, Topics)
+  // ============================================================================
+
+  /// Category: Precious Metals (Gold/Amber)
+  static const Color categoryPreciousMetals = Color(0xFFFFC107);
+
+  /// Category: Forex (Blue)
+  static const Color categoryForex = Color(0xFF2196F3);
+
+  /// Category: Central Bank (Red)
+  static const Color categoryCentralBank = Color(0xFFF44336);
+
+  /// Category: Policy (Green)
+  static const Color categoryPolicy = Color(0xFF4CAF50);
+
+  /// Category: Market News (Purple)
+  static const Color categoryMarket = Color(0xFF9C27B0);
+
+  // ============================================================================
+  // DARK MODE SPECIFIC COLORS
+  // ============================================================================
+
+  /// Dark mode surface: Card and container background in dark mode
+  static const Color darkSurface = Color(0xFF2C2C2C);
+
+  /// Dark mode background: Main background in dark mode
+  static const Color darkBackground = Color(0xFF1A1A1A);
+
+  /// Dark mode border: Borders and dividers in dark mode
+  static const Color darkBorder = Color(0xFF3C3C3C);
+
+  // ============================================================================
+  // GLASSMORPHISM COLORS (Dark Mode)
+  // ============================================================================
+
+  /// Glass overlay start: Starting color for glassmorphic gradient
+  static const Color glassOverlayStart = Color(0x26FFFFFF); // 15% white
+
+  /// Glass overlay end: Ending color for glassmorphic gradient
+  static const Color glassOverlayEnd = Color(0x0DFFFFFF); // 5% white
+
+  /// Glass border: Border color for glassmorphic effect
+  static const Color glassBorder = Color(0x1AFFFFFF); // 10% white
+
+  // ============================================================================
+  // UTILITY FUNCTIONS
+  // ============================================================================
+
+  /// Calculate contrast ratio between two colors
+  /// Returns ratio from 1:1 to 21:1
+  /// WCAG AA requires 4.5:1 for normal text, 3:1 for large text and UI components
+  static double calculateContrastRatio(Color foreground, Color background) {
+    final fgLuminance = foreground.computeLuminance();
+    final bgLuminance = background.computeLuminance();
+
+    final lighter = fgLuminance > bgLuminance ? fgLuminance : bgLuminance;
+    final darker = fgLuminance > bgLuminance ? bgLuminance : fgLuminance;
+
+    return (lighter + 0.05) / (darker + 0.05);
+  }
+
+  /// Check if color combination meets WCAG AA standards
+  /// - Normal text (< 18pt): 4.5:1
+  /// - Large text (>= 18pt): 3:1
+  /// - UI components: 3:1
+  static bool meetsWCAGAA({
+    required Color foreground,
+    required Color background,
+    bool isLargeText = false,
+  }) {
+    final ratio = calculateContrastRatio(foreground, background);
+    final requiredRatio = isLargeText ? 3.0 : 4.5;
+    return ratio >= requiredRatio;
+  }
+
+  /// Get appropriate text color (black or white) for a given background
+  static Color getTextColorForBackground(Color backgroundColor) {
+    final luminance = backgroundColor.computeLuminance();
+    // Use white text for dark backgrounds, black for light backgrounds
+    return luminance > 0.5 ? Colors.black : Colors.white;
+  }
+}

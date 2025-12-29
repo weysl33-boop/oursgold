@@ -3,52 +3,52 @@
 ## Phase 1: Backend API + Database (Foundation)
 
 ### 1.1 Project Setup & Infrastructure
-- [ ] 1.1.1 Initialize FastAPI project structure with Poetry/pip
-- [ ] 1.1.2 Configure PostgreSQL database and create initial schema
-- [ ] 1.1.3 Set up Redis for caching and session management
-- [ ] 1.1.4 Configure Docker Compose for local development
-- [ ] 1.1.5 Set up Alembic for database migrations
-- [ ] 1.1.6 Configure pytest with fixtures and test database
-- [ ] 1.1.7 Set up pre-commit hooks (Black, isort, pylint)
-- [ ] 1.1.8 Create OpenAPI/Swagger documentation structure
+- [x] 1.1.1 Initialize FastAPI project structure with Poetry/pip
+- [x] 1.1.2 Configure PostgreSQL database and create initial schema
+- [x] 1.1.3 Set up Redis for caching and session management
+- [x] 1.1.4 Configure Docker Compose for local development
+- [x] 1.1.5 Set up Alembic for database migrations
+- [x] 1.1.6 Configure pytest with fixtures and test database
+- [x] 1.1.7 Set up pre-commit hooks (Black, isort, pylint)
+- [x] 1.1.8 Create OpenAPI/Swagger documentation structure
 
 **Validation**: `docker-compose up` starts all services, `pytest` runs successfully
 
 ### 1.2 Database Models & Schemas
-- [ ] 1.2.1 Create User model (id, username, email, password_hash, created_at)
-- [ ] 1.2.2 Create Symbol model (code, name_cn, name_en, market, type, decimal_places)
-- [ ] 1.2.3 Create Quote model (symbol_code, price, change, high, low, volume, timestamp)
-- [ ] 1.2.4 Create Comment model (user_id, symbol_code, content, price_at_comment, timestamp)
-- [ ] 1.2.5 Create Prediction model (user_id, symbol_code, question, options, price_at_create, verify_time)
-- [ ] 1.2.6 Create Vote model (prediction_id, user_id, selected_option, price_at_vote, is_correct)
-- [ ] 1.2.7 Create UserPredictionStats model (user_id, accuracy_rate, total_predictions, streak)
-- [ ] 1.2.8 Define Pydantic schemas for all models (request/response DTOs)
-- [ ] 1.2.9 Run initial migration to create all tables
+- [x] 1.2.1 Create User model (id, username, email, password_hash, created_at)
+- [x] 1.2.2 Create Symbol model (code, name_cn, name_en, market, type, decimal_places)
+- [x] 1.2.3 Create Quote model (symbol_code, price, change, high, low, volume, timestamp)
+- [x] 1.2.4 Create Comment model (user_id, symbol_code, content, price_at_comment, timestamp)
+- [x] 1.2.5 Create Prediction model (user_id, symbol_code, question, options, price_at_create, verify_time)
+- [x] 1.2.6 Create Vote model (prediction_id, user_id, selected_option, price_at_vote, is_correct)
+- [x] 1.2.7 Create UserPredictionStats model (user_id, accuracy_rate, total_predictions, streak)
+- [x] 1.2.8 Define Pydantic schemas for all models (request/response DTOs)
+- [x] 1.2.9 Run initial migration to create all tables
 
 **Validation**: All tables created, relationships verified, sample data inserts work
 
 ### 1.3 User Authentication System
-- [ ] 1.3.1 Implement password hashing (bcrypt)
-- [ ] 1.3.2 Create user registration endpoint (POST /api/v1/auth/register)
-- [ ] 1.3.3 Create login endpoint with JWT token generation (POST /api/v1/auth/login)
-- [ ] 1.3.4 Implement JWT token validation middleware
-- [ ] 1.3.5 Create token refresh endpoint (POST /api/v1/auth/refresh)
-- [ ] 1.3.6 Create get current user endpoint (GET /api/v1/auth/me)
-- [ ] 1.3.7 Create update profile endpoint (PUT /api/v1/users/me)
+- [x] 1.3.1 Implement password hashing (bcrypt)
+- [x] 1.3.2 Create user registration endpoint (POST /api/v1/auth/register)
+- [x] 1.3.3 Create login endpoint with JWT token generation (POST /api/v1/auth/login)
+- [x] 1.3.4 Implement JWT token validation middleware
+- [x] 1.3.5 Create token refresh endpoint (POST /api/v1/auth/refresh)
+- [x] 1.3.6 Create get current user endpoint (GET /api/v1/auth/me)
+- [x] 1.3.7 Create update profile endpoint (PUT /api/v1/users/me)
 - [ ] 1.3.8 Write unit tests for auth service (registration, login, token validation)
 - [ ] 1.3.9 Write integration tests for auth endpoints
 
 **Validation**: User can register, login, receive JWT, access protected endpoints
 
 ### 1.4 Market Data Integration
-- [ ] 1.4.1 Research and select market data provider (Twelve Data recommended)
-- [ ] 1.4.2 Create market data client service with rate limiting
-- [ ] 1.4.3 Implement symbol configuration seeding (default 6 instruments + SGE symbols)
-- [ ] 1.4.4 Create background job to fetch prices every 5 seconds
-- [ ] 1.4.5 Implement Redis caching for latest quotes (TTL: 5s)
-- [ ] 1.4.6 Create endpoint to get current price (GET /api/v1/quotes/{symbol})
-- [ ] 1.4.7 Create endpoint to get multiple quotes (GET /api/v1/quotes?symbols=...)
-- [ ] 1.4.8 Create endpoint to get historical OHLCV data (GET /api/v1/quotes/{symbol}/history)
+- [x] 1.4.1 Research and select market data provider (Twelve Data recommended)
+- [x] 1.4.2 Create market data client service with rate limiting
+- [x] 1.4.3 Implement symbol configuration seeding (default 6 instruments + SGE symbols)
+- [x] 1.4.4 Create background job to fetch prices every 5 seconds
+- [x] 1.4.5 Implement Redis caching for latest quotes (TTL: 5s)
+- [x] 1.4.6 Create endpoint to get current price (GET /api/v1/quotes/{symbol})
+- [x] 1.4.7 Create endpoint to get multiple quotes (GET /api/v1/quotes?symbols=...)
+- [x] 1.4.8 Create endpoint to get historical OHLCV data (GET /api/v1/quotes/{symbol}/history)
 - [ ] 1.4.9 Implement error handling for API failures (fallback to cached data)
 - [ ] 1.4.10 Write tests with mocked market data API
 
@@ -57,11 +57,11 @@
 ### 1.5 News Aggregation (NEW)
 - [ ] 1.5.1 Create news database table with all required fields
 - [ ] 1.5.2 Implement news external source integration (RSS/API)
-- [ ] 1.5.3 Create background job to fetch news every 15 minutes
-- [ ] 1.5.4 Implement news deduplication logic
+- [x] 1.5.3 Create background job to fetch news every 15 minutes
+- [x] 1.5.4 Implement news deduplication logic
 - [ ] 1.5.5 Create endpoint to get news list (GET /api/v1/news)
 - [ ] 1.5.6 Create endpoint to get news detail (GET /api/v1/news/{id})
-- [ ] 1.5.7 Implement Redis caching for news list (TTL: 5min)
+- [x] 1.5.7 Implement Redis caching for news list (TTL: 5min)
 - [ ] 1.5.8 Write tests for news service
 
 **Validation**: News fetched periodically, cached, API returns correct data
@@ -78,15 +78,15 @@
 **Validation**: Search returns relevant results across symbols, topics, users
 
 ### 1.7 Core API Endpoints (Comments & Predictions)
-- [ ] 1.7.1 Create post comment endpoint (POST /api/v1/comments) - captures current price
-- [ ] 1.7.2 Create get comments endpoint (GET /api/v1/comments?symbol=...) with pagination
-- [ ] 1.7.3 Create like comment endpoint (POST /api/v1/comments/{id}/like)
-- [ ] 1.7.4 Create reply to comment endpoint (POST /api/v1/comments/{id}/replies)
-- [ ] 1.7.5 Create prediction endpoint (POST /api/v1/predictions) - captures current price
-- [ ] 1.7.6 Create vote on prediction endpoint (POST /api/v1/predictions/{id}/vote)
-- [ ] 1.7.7 Create get predictions endpoint (GET /api/v1/predictions?status=active)
-- [ ] 1.7.8 Create background job for prediction verification at deadline
-- [ ] 1.7.9 Implement prediction accuracy calculation logic
+- [x] 1.7.1 Create post comment endpoint (POST /api/v1/comments) - captures current price
+- [x] 1.7.2 Create get comments endpoint (GET /api/v1/comments?symbol=...) with pagination
+- [x] 1.7.3 Create like comment endpoint (POST /api/v1/comments/{id}/like)
+- [x] 1.7.4 Create reply to comment endpoint (POST /api/v1/comments/{id}/replies)
+- [x] 1.7.5 Create prediction endpoint (POST /api/v1/predictions) - captures current price
+- [x] 1.7.6 Create vote on prediction endpoint (POST /api/v1/predictions/{id}/vote)
+- [x] 1.7.7 Create get predictions endpoint (GET /api/v1/predictions?status=active)
+- [x] 1.7.8 Create background job for prediction verification at deadline
+- [x] 1.7.9 Implement prediction accuracy calculation logic
 - [ ] 1.7.10 Write tests for comment and prediction services
 
 **Validation**: Comments save with price, predictions verify automatically, accuracy calculates
@@ -117,92 +117,92 @@
 ## Phase 2: Mobile UI Foundation (Navigation & Basic Screens)
 
 ### 2.1 Flutter Project Setup
-- [ ] 2.1.1 Initialize Flutter project with proper package structure
-- [ ] 2.1.2 Configure build settings for iOS and Android
-- [ ] 2.1.3 Set up dependency injection (get_it or riverpod)
-- [ ] 2.1.4 Configure routing (go_router or auto_route)
-- [ ] 2.1.5 Set up environment configuration (dev/staging/prod)
-- [ ] 2.1.6 Configure linting (analysis_options.yaml)
-- [ ] 2.1.7 Set up testing framework (flutter_test, mockito)
-- [ ] 2.1.8 Create folder structure (features, core, data, widgets)
+- [x] 2.1.1 Initialize Flutter project with proper package structure
+- [x] 2.1.2 Configure build settings for iOS and Android
+- [x] 2.1.3 Set up dependency injection (riverpod)
+- [x] 2.1.4 Configure routing (go_router)
+- [x] 2.1.5 Set up environment configuration (dev/staging/prod)
+- [x] 2.1.6 Configure linting (analysis_options.yaml)
+- [x] 2.1.7 Set up testing framework (flutter_test, mockito)
+- [x] 2.1.8 Create folder structure (features, core, data, widgets)
 
 **Validation**: `flutter run` launches app, navigation works, tests run
 
 ### 2.2 Core Infrastructure (Mobile)
-- [ ] 2.2.1 Create API client service with Dio/http
-- [ ] 2.2.2 Implement JWT token storage (flutter_secure_storage)
-- [ ] 2.2.3 Create authentication interceptor for API requests
-- [ ] 2.2.4 Implement error handling and retry logic
-- [ ] 2.2.5 Create repository pattern for data layer
-- [ ] 2.2.6 Set up state management (Riverpod/Bloc/Provider)
-- [ ] 2.2.7 Create theme configuration (light/dark mode)
+- [x] 2.2.1 Create API client service with Dio/http
+- [x] 2.2.2 Implement JWT token storage (flutter_secure_storage)
+- [x] 2.2.3 Create authentication interceptor for API requests
+- [x] 2.2.4 Implement error handling and retry logic
+- [x] 2.2.5 Create repository pattern for data layer
+- [x] 2.2.6 Set up state management (Riverpod/Bloc/Provider)
+- [x] 2.2.7 Create theme configuration (light/dark mode)
 - [ ] 2.2.8 Implement i18n structure (Chinese + English)
 
 **Validation**: API calls work, auth persists, theme switches, translations load
 
 ### 2.3 Bottom Navigation & Shell
-- [ ] 2.3.1 Create bottom navigation bar widget (5 tabs)
-- [ ] 2.3.2 Implement tab icons (Remix Icons or similar)
-- [ ] 2.3.3 Add selected/unselected state styling
-- [ ] 2.3.4 Create shell scaffold with safe area handling
-- [ ] 2.3.5 Implement tab persistence on navigation
+- [x] 2.3.1 Create bottom navigation bar widget (5 tabs)
+- [x] 2.3.2 Implement tab icons (Remix Icons or similar)
+- [x] 2.3.3 Add selected/unselected state styling
+- [x] 2.3.4 Create shell scaffold with safe area handling
+- [x] 2.3.5 Implement tab persistence on navigation
 - [ ] 2.3.6 Add haptic feedback on tab switch
 - [ ] 2.3.7 Write widget tests for navigation bar
 
 **Validation**: All 5 tabs navigate correctly, styling matches design
 
 ### 2.4 Home Page
-- [ ] 2.4.1 Create home page scaffold with app bar
-- [ ] 2.4.2 Implement search bar UI with navigation to search page
-- [ ] 2.4.3 Create market card widget (2-column grid)
+- [x] 2.4.1 Create home page scaffold with app bar
+- [x] 2.4.2 Implement search bar UI with navigation to search page
+- [x] 2.4.3 Create market card widget (2-column grid)
 - [ ] 2.4.4 Implement mini trend chart widget (fl_chart or similar)
-- [ ] 2.4.5 Fetch and display 6 default instruments
-- [ ] 2.4.6 Show price, change percentage, and trend direction
-- [ ] 2.4.7 Implement pull-to-refresh
-- [ ] 2.4.8 Add loading and error states
-- [ ] 2.4.9 Navigate to detail page on card tap
-- [ ] 2.4.10 Create news section below market cards
-- [ ] 2.4.11 Display 3-5 news items with title, category, time, thumbnail
+- [x] 2.4.5 Fetch and display 6 default instruments
+- [x] 2.4.6 Show price, change percentage, and trend direction
+- [x] 2.4.7 Implement pull-to-refresh
+- [x] 2.4.8 Add loading and error states
+- [x] 2.4.9 Navigate to detail page on card tap
+- [x] 2.4.10 Create news section below market cards
+- [x] 2.4.11 Display 3-5 news items with title, category, time, thumbnail
 - [ ] 2.4.12 Navigate to news detail/list on tap
 - [ ] 2.4.13 Write widget tests for home page
 
 **Validation**: Home page displays 6 cards + news section, prices load, navigation works
 
 ### 2.5 Search Page (NEW)
-- [ ] 2.5.1 Create search page with search input
-- [ ] 2.5.2 Implement real-time search suggestions (debounced)
-- [ ] 2.5.3 Display recent search history
-- [ ] 2.5.4 Display hot search keywords
-- [ ] 2.5.5 Create search result tabs (全部, 市场, 话题, 用户)
-- [ ] 2.5.6 Implement symbol search results
-- [ ] 2.5.7 Implement topic search results
+- [x] 2.5.1 Create search page with search input
+- [x] 2.5.2 Implement real-time search suggestions (debounced)
+- [x] 2.5.3 Display recent search history
+- [x] 2.5.4 Display hot search keywords
+- [x] 2.5.5 Create search result tabs (全部, 市场, 话题, 用户)
+- [x] 2.5.6 Implement symbol search results
+- [x] 2.5.7 Implement topic search results
 - [ ] 2.5.8 Implement user search results
-- [ ] 2.5.9 Navigate to detail pages from results
+- [x] 2.5.9 Navigate to detail pages from results
 - [ ] 2.5.10 Write widget tests for search
 
 **Validation**: Search works with suggestions, results display correctly
 
 ### 2.6 Quotes Page
-- [ ] 2.6.1 Create quotes page with category chips (自选, 黄金, 外汇, etc.)
-- [ ] 2.6.2 Implement horizontal scrollable chip selector
-- [ ] 2.6.3 Create quote list item widget with mini chart
+- [x] 2.6.1 Create quotes page with category chips (自选, 黄金, 外汇, etc.)
+- [x] 2.6.2 Implement horizontal scrollable chip selector
+- [x] 2.6.3 Create quote list item widget with mini chart
 - [ ] 2.6.4 Fetch and display categorized instruments
-- [ ] 2.6.5 Show market badge (LBMA/COMEX/SGE)
-- [ ] 2.6.6 Implement category filtering
-- [ ] 2.6.7 Add pull-to-refresh
-- [ ] 2.6.8 Navigate to detail page on item tap
+- [x] 2.6.5 Show market badge (LBMA/COMEX/SGE)
+- [x] 2.6.6 Implement category filtering
+- [x] 2.6.7 Add pull-to-refresh
+- [x] 2.6.8 Navigate to detail page on item tap
 - [ ] 2.6.9 Implement favorites/watchlist functionality
 - [ ] 2.6.10 Write widget tests for quotes page
 
 **Validation**: Categories filter correctly, all instruments display, favorites work
 
 ### 2.7 Forex Page
-- [ ] 2.7.1 Create forex page with currency calculator card
-- [ ] 2.7.2 Implement source currency selector with flags
-- [ ] 2.7.3 Implement target currency selector with flags
-- [ ] 2.7.4 Create swap button to reverse currencies
-- [ ] 2.7.5 Implement amount input with real-time calculation
-- [ ] 2.7.6 Display current exchange rate and update time
+- [x] 2.7.1 Create forex page with currency calculator card
+- [x] 2.7.2 Implement source currency selector with flags
+- [x] 2.7.3 Implement target currency selector with flags
+- [x] 2.7.4 Create swap button to reverse currencies
+- [x] 2.7.5 Implement amount input with real-time calculation
+- [x] 2.7.6 Display current exchange rate and update time
 - [ ] 2.7.7 Create popular currency pairs list below calculator
 - [ ] 2.7.8 Show mini charts for each pair
 - [ ] 2.7.9 Navigate to detail page on pair tap
@@ -211,54 +211,54 @@
 **Validation**: Calculator converts correctly, swap works, pairs display
 
 ### 2.8 Detail Page (Charts Only)
-- [ ] 2.8.1 Create detail page scaffold with symbol header
-- [ ] 2.8.2 Display current price, change, and market status
-- [ ] 2.8.3 Create 3x2 data grid (open, high, low, close, volume, avg volume)
+- [x] 2.8.1 Create detail page scaffold with symbol header
+- [x] 2.8.2 Display current price, change, and market status
+- [x] 2.8.3 Create 3x2 data grid (open, high, low, close, volume, avg volume)
 - [ ] 2.8.4 Integrate TradingView chart widget (webview_flutter or native)
-- [ ] 2.8.5 Implement time period selector (1D, 5D, 1M, 6M, 1Y, All)
+- [x] 2.8.5 Implement time period selector (1D, 5D, 1M, 6M, 1Y, All)
 - [ ] 2.8.6 Fetch and display historical OHLCV data
 - [ ] 2.8.7 Add chart interaction (pinch zoom, pan)
-- [ ] 2.8.8 Implement favorite/star button
+- [x] 2.8.8 Implement favorite/star button
 - [ ] 2.8.9 Add loading and error states
 - [ ] 2.8.10 Write widget tests for detail page
 
 **Validation**: Charts render, time periods switch, data loads correctly
 
 ### 2.9 Community Page (Skeleton)
-- [ ] 2.9.1 Create community page scaffold
-- [ ] 2.9.2 Add section headers (Hot Topics, Trending Symbols, Top Comments)
-- [ ] 2.9.3 Create placeholder cards for each section
-- [ ] 2.9.4 Implement basic list layout
+- [x] 2.9.1 Create community page scaffold
+- [x] 2.9.2 Add section headers (Hot Topics, Trending Symbols, Top Comments)
+- [x] 2.9.3 Create placeholder cards for each section
+- [x] 2.9.4 Implement basic list layout
 - [ ] 2.9.5 Add pull-to-refresh
 - [ ] 2.9.6 Write widget tests
 
 **Validation**: Page structure displays, sections visible
 
 ### 2.10 Profile Page (Skeleton)
-- [ ] 2.10.1 Create profile page scaffold
-- [ ] 2.10.2 Display user avatar and username
-- [ ] 2.10.3 Create settings list (language, theme, notifications)
+- [x] 2.10.1 Create profile page scaffold
+- [x] 2.10.2 Display user avatar and username
+- [x] 2.10.3 Create settings list (language, theme, notifications)
 - [ ] 2.10.4 Add logout button
-- [ ] 2.10.5 Implement theme toggle
-- [ ] 2.10.6 Implement language toggle
-- [ ] 2.10.7 Implement price color preference (红涨绿跌/绿涨红跌)
+- [x] 2.10.5 Implement theme toggle
+- [x] 2.10.6 Implement language toggle
+- [x] 2.10.7 Implement price color preference (红涨绿跌/绿涨红跌)
 - [ ] 2.10.8 Write widget tests
 
 **Validation**: Profile displays, settings work, preferences save, logout clears session
 
 ### 2.11 News Pages (NEW)
-- [ ] 2.11.1 Create news list page with category filter tabs
-- [ ] 2.11.2 Implement news list item widget (title, category, time, thumbnail)
-- [ ] 2.11.3 Create news detail page with full content
-- [ ] 2.11.4 Display related symbols on news detail
-- [ ] 2.11.5 Implement pagination for news list
+- [x] 2.11.1 Create news list page with category filter tabs
+- [x] 2.11.2 Implement news list item widget (title, category, time, thumbnail)
+- [x] 2.11.3 Create news detail page with full content
+- [x] 2.11.4 Display related symbols on news detail
+- [x] 2.11.5 Implement pagination for news list
 - [ ] 2.11.6 Write widget tests for news pages
 
 **Validation**: News list loads, detail page displays, related symbols link correctly
 
 ### 2.12 Phase 2 Finalization
-- [ ] 2.12.1 Ensure all pages accessible via bottom nav
-- [ ] 2.12.2 Test navigation flow end-to-end
+- [x] 2.12.1 Ensure all pages accessible via bottom nav
+- [x] 2.12.2 Test navigation flow end-to-end
 - [ ] 2.12.3 Verify responsive layout on different screen sizes
 - [ ] 2.12.4 Test on iOS and Android devices/simulators
 - [ ] 2.12.5 Fix any UI/UX issues

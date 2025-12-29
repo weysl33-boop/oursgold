@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: gold-platform
+data:
+  APP_NAME: "Gold Social Platform"
+  DEBUG: "false"
+  CORS_ORIGINS: "https://app.goldplatform.com,https://www.goldplatform.com"
+  DATABASE_POOL_SIZE: "20"
+  DATABASE_MAX_OVERFLOW: "10"
+  ALGORITHM: "HS256"
+  ACCESS_TOKEN_EXPIRE_MINUTES: "1440"
+
